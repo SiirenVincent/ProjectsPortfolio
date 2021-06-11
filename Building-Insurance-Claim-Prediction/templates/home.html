@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buidling building insurance prediction</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+/* @-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+} */
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: darkorange;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  
+  color: white;
+}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.text
+{
+  background: darkorange;
+  width: auto;
+}
+</style>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-style">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a href=""><img class="logo" src="logo1.png"</a> -->
+                    <h4>Boseman Insurance Company</h4>
+                    <!-- <li><a href="">Home</a></li> -->
+                </div>
+                <div class="collapse navbar-collapse" id="micon">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Members</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+              
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 banner-info">
+                    <h1>WELCOME TO</h1>
+                    <p class="big-text">Buildings insurance claim prediction</p>
+                    <p>Fill the form to find if there will be an insurance claim !!!!!!</p>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="text">
+                    {{ prediction_text }}
+                    </div>
+                    <!-- <div>{{ prediction_text }}
+                        
+                    </div> -->
+                        <!-- <img src="static/photos/p.jpg"  class="img-responsive"> -->
+                        
+                </div>
+                <div class="col-sm-6 banner-image">
+                    <form method="POST" , action="{{url_for('home')}}">
+                        <div class="row">
+                            <div>
+                                <h1>Check Your Prediction</h1>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Enter Building Dimension</label>
+                                <input class="input-pred" type="number" name="building_dimension" placeholder="Building Dimension(e.g 290)" required>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Enter Years Occupied</label> 
+                                <input class="input-pred" type="number" name="years_occupied" placeholder="Years Occupied (Year of occupancy-Year of Observation")" required>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Enter Year Of Observation</label> 
+                                <input class="input-pred" type="number" name="yearofobservation" placeholder="Year of Observation (e.g 2013)" required>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Year Of Occupany</label> 
+                                <input class="input-pred" type="number" name="date_of_occupancy" placeholder="Year of occupancy (e.g 1960)" required>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Enter Insurance Period</label> 
+                                <input class="input-pred" type="number" name="insured_period" placeholder="Insured Period (e.g 1.0)" required>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Enter Building Type</label> 
+                                <input class="input-pred" type="number" name="building_type" placeholder="Building type (e.g 1,2,3,4)" required>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Enter Residential Type</label> 
+                                <input class="input-pred" type="number" name="residential" placeholder="Residential(1=Residential house 0=Office)" required>
+                            </div>
+                            <div class="col">
+                                <label for="IDofInput">Enter Status o Expiry</label> 
+                                <input class="input-pred" type="number" name="expiring_soon" placeholder="Expiring Soon(1=not expired 0=expired)" required>
+                            </div>
+                                
+                            <center>
+                                <!-- <a type="submit" class="click", href="#modal">Predict</a> -->
+                                <!-- <button type="submit" id="myBtn">Open Modal</button> -->
+                                <input  type="submit" class="click"   value="Predict">
+                            </center>
+                            <br>
+                            
+                        </div>
+                    </form> 
+                </div>
+
+                {{ prediction_text }}
+                <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Your Results</h2>
+      </div>
+      <div class="modal-body">
+        {%if show_predictions_modal == 1 %}
+        <p>There will be building insurance claim</p>
+        {%else%}
+        <p>There will be no building insurance claim</p> 
+        {%endif%}
+      </div>
+      <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+  
+  </div>
+  
+  <script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+
+    $(window).load(function(){
+             $('#thankyouModal').modal('show');
+         });
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+    </header>
+</body>
+
+</html>
