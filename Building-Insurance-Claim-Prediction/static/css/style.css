@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header
+{
+    height: 100px;
+}
+.navbar-style
+{
+    box-shadow: 0 5px 10px #efefef;
+    text-transform: uppercase;
+    background-color: darkorange;
+}
+.icon-bar
+{
+    background: darkorange;
+}
+li a{
+    color: #333;
+}
+.big-text
+{
+    font-size: 52px;
+    margin: 20px 0;
+    color: darkorange;
+}
+.banner-info, .banner-image
+{
+    margin: 30px 0;
+}
+
+form
+{
+    margin-top: 10px;
+    transition: all 4s ease-in-out;
+}
+input
+/* {
+    height: 45px;
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+} */
+form .submit
+/* {
+    background: #ff5722;
+    border-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    height: 50px;
+    margin-top: 20px;
+} */
+form .submit:hover
+{
+    background-color: #f44336;
+    cursor: pointer;
+}
+
+
+/* Predict form */
+
+/* .input-pred
+{
+    width: 30%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+} */
+.click
+{
+    display: block;
+    width: 160px;
+    height: 50px;
+    background: darkorange;
+    border: 1px solid;
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    line-height: 50%;
+    border-radius: 30px;
+    transition: .5s;
+}
+.click:hover
+{
+    background: #219150;
+}
+.click-content
+{
+    width: 400Px;
+    height: 350px;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.4);
+}
+.head
+{
+    height: 68px;
+    background: darkorange;
+    overflow: hidden;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+.head h2
+{
+    color: white;
+    padding-left: 32px;
+    font-weight: normal;
+}
+.fa-times
+{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #e8f7fc;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.row {
+    font-family: sans-serif;
+    box-align: center;
+    overflow: hidden;
+    padding: 0px;
+    overflow: hidden;
+    width: 50%;
+}
+.col {
+
+    float: left;
+    width: 50%;
+}
+
+#name {
+    width: 223.67px;
+    height: 40.25px;
+}
+
+.form-group {
+    display: inline-block;
+    width: 10px;
+    padding: 0 !important;
+}
+
+.container {
+    display: inline-block;
+    width: 50%;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+}
+.form-control {
+    margin: 0 !important;
+}
