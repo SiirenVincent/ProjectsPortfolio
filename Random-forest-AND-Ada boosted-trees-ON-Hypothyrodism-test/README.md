@@ -24,5 +24,3 @@ SVM
 
 - Compare the three kernel(Linear,Polynomial and Rbf functions)
 
-# Conclusion
-For any queries or any assistance feel free to contact vinisiiren@gmail.com
